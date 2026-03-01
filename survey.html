@@ -1,0 +1,164 @@
+<!-- 
+Course: SWE 645
+HW1 Part 2: Student Survey
+Name: Yara Alsakbani, G01308462
+Purpose: Student survey form that collects feedback and includes a raffle feature.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CS Department Survey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/styles.css"> <!-- Links external CSS file -->
+</head>
+
+<body>
+
+<div class="page-container container mt-4"> <!-- Bootstrap layout helper to control page width and layout -->
+
+<h1>CS Department Survey</h1>
+
+
+<form autocomplete="on" onsubmit="return validateRaffle()"> <!-- Enables browser autofill -->
+  
+  <!-- Name field, cursor starts here -->
+  <label>Name *</label><br>
+  <input type="text" required autofocus><br><br>
+
+  <!-- Street Address -->
+  <label>Street Address *</label><br>
+  <input type="text" name="street" required placeholder="123 Main St"><br><br>
+
+  <!-- City -->
+  <label>City *</label><br>
+  <input type="text" name="city" required placeholder="Fairfax"><br><br>
+
+  <!-- State -->
+  <label>State *</label><br>
+  <input type="text" name="state" required placeholder="VA"><br><br>
+
+  <!-- ZIP Code -->
+  <label>ZIP Code *</label><br>
+  <input type="text" name="zip" required placeholder="22030"><br><br>
+
+  <!-- Telephone -->
+  <label>Telephone Number</label><br>
+  <input type="tel" name="phone" placeholder="123-456-7890"><br><br>
+
+  <!-- Email -->
+  <label>Email *</label><br>
+  <input type="email" name="email" required placeholder="name@example.com"><br><br>
+
+  <!-- Website URL -->
+  <label>Website URL</label><br>
+  <input type="url" name="website" placeholder="https://example.com"><br><br>
+
+  <!-- Date of Survey -->
+  <label>Date of Survey *</label><br>
+  <input type="date" name="survey_date" required><br><br>
+
+
+  <label>What did you like most about the campus?</label><br>
+  <!-- Checkbox options -->
+  <label><input type="checkbox"> Students</label><br>
+  <label><input type="checkbox"> Location</label><br>
+  <label><input type="checkbox"> Campus</label><br>
+  <label><input type="checkbox"> Atmosphere</label><br>
+  <label><input type="checkbox"> Dorm Rooms</label><br>
+  <label><input type="checkbox"> Sports</label><br><br>
+
+  <label>How did you become interested in GMU?</label><br>
+  <!-- Single-select options ("radio" buttons) -->
+  <label><input type="radio" name="interest"> Friends</label><br>
+  <label><input type="radio" name="interest"> Internet</label><br>
+  <label><input type="radio" name="interest"> Television</label><br>
+  <label><input type="radio" name="interest"> Other</label><br><br>
+
+  <label>High School Graduation Month</label><br>
+  <input list="months">
+  <!-- Datalist input for month selection -->
+  <datalist id="months">
+    <option value="January">
+    <option value="February">
+    <option value="March">
+    <option value="April">
+    <option value="May">
+    <option value="June">
+    <option value="July">
+    <option value="August">
+    <option value="September">
+    <option value="October">
+    <option value="November">
+    <option value="December">
+  </datalist>
+  <input type="text" placeholder="Year"><br><br>   <!-- Year input -->
+
+  <label>Likelihood of recommending GMU</label><br>
+  <select>
+    <option>Very Likely</option>
+    <option>Likely</option>
+    <option>Unlikely</option>
+  </select><br><br>
+  
+  <!-- Raffle Field -->
+  <div class="mb-3">
+  <label for="raffle" class="form-label">Raffle *</label>
+  <input
+	type="text"
+	id="raffle"
+	class="form-control"
+	required
+	placeholder="Enter at least 10 numbers (1-100), separated by commas">
+  </div>
+
+  <!-- Additional Comments -->
+  <div class="mb-3">
+    <label class="form-label">Additional Comments</label>
+    <textarea class="form-control" rows="4"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mb-3">
+    <input type="submit" value="Submit Survey" class="btn btn-success">
+  </div>
+  
+
+
+</form>
+
+</div>
+
+<script>
+function validateRaffle() {
+  const raffleInput = document.getElementById("raffle").value;
+  const numbers = raffleInput.split(",").map(n => parseInt(n.trim()));
+
+  if (numbers.length < 10) {
+    alert("Please enter at least 10 numbers.");
+    return false;
+  }
+
+  for (let n of numbers) {
+    if (isNaN(n) || n < 1 || n > 100) {
+      alert("Each number must be between 1 and 100.");
+      return false;
+    }
+  }
+
+  const winningNumber = Math.floor(Math.random() * 100) + 1;
+
+  if (numbers.includes(winningNumber)) {
+    alert("Congratulations! You won a free movie ticket!");
+  } else {
+    alert("Sorry, you did not win this time. Thanks for participating!");
+  }
+
+  return true;
+}
+</script>
+
+
+</body>
+</html>

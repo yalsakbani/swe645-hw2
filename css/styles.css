@@ -1,0 +1,41 @@
+/* 
+Course: SWE 645
+HW1
+Name: Yara Alsakbani, G01308462
+Purpose: Provides styling for the homepage and survey form.
+*/
+
+body {
+  background-color: #006633; /* GMU Green page background*/
+  font-family: Arial, sans-serif;
+}
+
+.page-container {
+  width: 90%; /* Limits content width */
+  margin: auto; /* Centers the container */
+  background-color: white; /* White content background */
+  padding: 30px; /* Space inside container */
+}
+
+h1 {
+  color: #006633;
+  border: 5px solid #006633; /* Green border around heading */
+  padding: 10px;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2); /* Shadow effect */
+  background-color: #FFCC33; /* GMU Yellow */
+}
+
+table {
+  width: 100%; /* Full-width table */
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.custom-highlight {
+  color: #FFCC33; 
+  font-weight: bold;
+}
