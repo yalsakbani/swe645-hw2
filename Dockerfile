@@ -1,4 +1,4 @@
-# This Dockerfile containerizes the SWE 645 HW1 survey web application
+# This Dockerfile containerizes the SWE 645 HW2 survey web application
 # using Nginx as the web server.
 
 FROM nginx:latest

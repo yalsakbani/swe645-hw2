@@ -1,3 +1,6 @@
+# This file defines the Kubernetes LoadBalancer Service for the SWE645 HW2 survey application.
+# It exposes the deployment externally on port 80 via an AWS Elastic Load Balancer.
+
 apiVersion: v1
 kind: Service
 metadata:
