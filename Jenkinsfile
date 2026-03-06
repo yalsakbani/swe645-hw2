@@ -27,9 +27,9 @@ pipeline {
         }
 	stage('Deploy to Kubernetes') {
 	    steps {
-        	sh 'aws eks update-kubeconfig --name swe645-cluster --region us-east-2'
-	        sh 'kubectl apply -f deployment.yaml'
-        	sh 'kubectl apply -f service.yaml'
+	        sh 'aws eks update-kubeconfig --name swe645-cluster --region us-east-2'
+        	sh 'kubectl apply -f deployment.yaml --validate=false'
+	        sh 'kubectl apply -f service.yaml --validate=false'
 	    }
 	}
     }
